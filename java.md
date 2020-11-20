@@ -331,6 +331,177 @@ SUMMARY:-
   Big o notation - Time complexity -> no of loops
                  memory allocation
 
+Java 8 features:
+ 
+Optionals: Optional is a way of replacing a nullable T reference with a non-null value. An Optional may either contain a non-null T reference (in which case we say the reference is “present”), or it may contain nothing.
+Ex:
+Optional<Integer> canBeEmpty1 = Optional.of(5);
+canBeEmpty1.isPresent();    // returns true
+canBeEmpty1.get(); //returns 5
+ 
+Optional<Integer> canBeEmpty2 = Optional.empty();
+canBeEmpty2.isPresent(); //returns false
+ 
+ 
+There are 3 major ways to create an Optional.
+i) Use Optional.empty() to create empty optional.
+Optional<Integer> possible = Optional.empty();
+ii) Use Optional.of() to create optional with default non-null value. If you pass null in of(), then a NullPointerException is thrown immediately.
+Optional<Integer> possible = Optional.of(5);
+possible.ifPresent(System.out::println);//prints 5
+iii) Use Optional.ofNullable() to create an Optional object that may hold a null value. If parameter is null, the resulting Optional object would be empty (remember that value is absent; don’t read it null).
+Optional<Integer> possible = Optional.ofNullable(null);
+//or
+Optional<Integer> possible = Optional.ofNullable(5);
+ 
+The default no-args constructor is define private, so you can’t create an instance of Optional except 3 given ways above.
+ 
+Please note that Optional is not meant to be used in these below contexts, as possibly it won’t buy us anything:
+·         in the domain model layer (it’s not serializable)
+·         in DTOs (it’s not serializable)
+·         in input parameters of methods
+·         in constructor parameters
+Streams vs. Collections :
+A Collection is an in-memory data structure, which holds all the values that the data structure currently has—every element in the Collection has to be computed before it can be added to the Collection. A Stream is a conceptually fixed data structure, in which elements are computed on demand. This gives rise to significant programming benefits.
+àStream operations are either intermediate or terminal. While terminal operations return a result of a certain type, intermediate operations return the stream itself so you can chain multiple method calls in a row. 
+ 
+Different ways to build streams:
+1) Using Stream.of(val1, val2, val3….)
+public class StreamBuilders {
+     public static void main(String[] args){
+         Stream<Integer> stream = Stream.of(1,2,3,4,5,6,7,8,9);
+         stream.forEach(p -> System.out.println(p));
+     }
+}
+2) Using Stream.of(arrayOfElements)
+public class StreamBuilders {
+     public static void main(String[] args){
+         Stream<Integer> stream = Stream.of( new Integer[]{1,2,3,4,5,6,7,8,9} );
+         stream.forEach(p -> System.out.println(p));
+     }
+}
+3) Using someList.stream()
+public class StreamBuilders {
+     public static void main(String[] args){
+         List<Integer> list = new ArrayList<Integer>();
+         for(int i = 1; i< 10; i++){
+             list.add(i);
+         }
+         Stream<Integer> stream = list.stream();
+         stream.forEach(p -> System.out.println(p));
+     }
+}
+4) Using Stream.generate() or Stream.iterate() functions
+public class StreamBuilders {
+     public static void main(String[] args){
+         Stream<Date> stream = Stream.generate(() -> { return new Date();});
+         stream.forEach(p -> System.out.println(p));
+     }
+}
+5) Using String chars or String tokens
+public class StreamBuilders {
+     public static void main(String[] args){
+        IntStream stream = "12345_abcdefg".chars();
+        stream.forEach(p -> System.out.println(p));
+         
+        //OR
+         
+        Stream<String> stream = Stream.of("A$B$C".split("\\$"));
+        stream.forEach(p -> System.out.println(p));
+     }
+}
+ 
+Converting streams to collections
+ 
+ 
+Types on Functional interfaces :
+ 
+Function : Represents a function that accepts one argument and produces a result.
+ 
+Predicate : Predicate a functional interface and can therefore be used as the assignment target for a lambda expression or method reference. you can use them anywhere where you need to evaluate a condition on group/collection of similar objects such that evaluation can result either in true or false.
+Ex: public static Predicate<Employee> isAdultFemale() {
+    return p -> p.getAge() > 18 && p.getGender().equalsIgnoreCase("F");
+}
+ 
+ 
+Consumer :
+ 
+Supplier :
+ 
+Operator :
+ 
+Lambda Expressions:
+ 
+Intermediate operations on Stream:
+ 
+Filter : is used for filtering the data , it always returns the Boolean value . If it returns true , the item is added to list else its filtered out.
+Takes Predicate (functional interface)
+ 
+Map : is used for transforming the object values .
+Takes Function(functional interface) as input.
+FlatMap:
+ 
+Distinct
+ 
+Sorted
+ 
+Peek
+ 
+Limit
+ 
+Skip
+ 
+ref: https://www.leveluplunch.com/java/examples/stream-intermediate-operations-example/
+ 
+Terminal operations on Stream:
+ 
+Short circuit operation
+ 
+Default methods(Defender methods):
+
+
+Types on functional interfaces:
+ 
+1.    Function :
+ 
+2.    Predicate :
+ 
+3.    Consumer :
+ 
+4.    Supplier:
+ 
+5.    Operator:
+ 
+Lambda Expressions:
+ 
+Intermediate operations on Stream:
+ 
+è Filter : is used for filtering the data , it always returns the Boolean value . If it returns true , the item is added to list else its filtered out.
+-       Takes Predicate (functional interface)
+ 
+è Map : is used for transforming the object values .
+-       Takes Function(functional interface) as input.
+è FlatMap:
+ 
+è Distinct
+ 
+è Sorted
+ 
+è Peek
+ 
+è Limit
+ 
+è Skip
+ 
+ref: https://www.leveluplunch.com/java/examples/stream-intermediate-operations-example/
+ 
+Terminal operations on Stream:
+ 
+Short circuit operation
+ 
+Default methods(Defender methods):
+
+
 ### Java Versions
 # Java SE 8:
 Java 8 was released on 18 March 2014. The code name culture is dropped with Java 8 and so no official code name going forward from Java 8.
@@ -436,3 +607,117 @@ Reflection (introspection only)
   
 # JDK Version 1.0  
 Codenamed Oak and released on January 23, 1996.  
+
+
+
+type inference - done by Java compiler to define type
+https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html  
+method reference - ::     
+
+
+
+## JMM
+
+Java Memory Model (JMM) is a specification which guarantees visibility of fields(aka happens before) amidst reordering of instructions.
+
+1) Out of order execution (Performance driven changes done by compiler, JVM or CPU)
+	a = 3
+	b = 1
+
+2) Field Visibility (In presence of multiple threads a.k.a Concurrency)
+   volatile keyword ensures that values is pushed from the local cache to shared cache and hence can be used in multi threaded environment
+   
+3) "Happens before" relationship 
+    for volatile, synchronized keyword, Locks, Concurrent collections, Thread Operations(Join, Start), final fields.
+
+## JVM
+
+Open points
+1.       Validate the flow
+2.       Resolve in Linking flow
+3.       Reason for Meta-space
+
+Class loader Sub system
+1.       Loading
+Bootstrap -> rt.jar
+Extension -> ext folder in Java installation folder (C:\Program Files\Java\jdk1.8.0_172\jre\lib\ext)
+Application -> your project classes
+
+2.       Linking
+Verify: .class is valid or not (Verify Error)
+Prepare: static variables is assigned memory and default value (Java 7: method area & java 8: meta space (part of heap only))
+Resolve: resolve dependencies
+
+3. Initialization
+Initialization: static variables will be assigned original values and static block call
+
+Runtime data Areas(Memory)
+1. Method Area
+class level data and static variables
+Not thread safe
+Note: Java 8 Meta space is there instead of Method Area
+
+2. Heap Area
+Objects
+Instance variables
+Not thread safe
+
+3. Stack area
+Per thread memory assigned (stack created for each thread)
+Thread safe
+LVA: local variable array
+OS: operand stack
+FD: frame data
+
+
+Polymorphism
+
+Parent p = new Parent()
+Parent p = new child()
+child c  = new Parent()
+child c = new child()
+
+
+## HashMap
+There are few concepts that we should understand first before starting hash-map
+hashCode: it is an integer value that uniquely identifies the key
+contract between equals and hashCode: 
+
+Quick story:
+ - You go to chemist for buying a Disprin 
+ - He checks the name and goes back to search for it
+ - There are shelf available, he went there and start searching for box with D written on it.
+ - He pull out the box and starts searching for disprin
+ - Takes out the disprin and gives it back to you.
+
+Same is the working of hash map.
+ - Just replace name of medicine i.e disprin with key
+ - And box of medicine with buckets
+ - You write a hashcode that will act as a key to find the box containing value
+ - once you find that box you use equals method to check if it is the correct one and return.
+
+A new word that you encountered in this story id hashcode. Now, what exactly is this hash code.
+It is a unique number that helps you in finding the bucket easily.
+
+1. What is hashing
+2. contract between equals and hashcode
+3. Hash based
+4. bucket = table = array
+5. Entry<> this is declared in map and implemented in hashmap, entry has pointer to next entry
+
+
+Two scenarios:
+
+```java
+public int hashCode(){
+  return 1;
+}
+
+public boolean equals(){
+
+}
+```
+
+References: 
+ - https://dzone.com/articles/jvm-architecture-explained
+ - https://www.netjstech.com/2017/08/java-lambda-expressions-interview-questions.html
