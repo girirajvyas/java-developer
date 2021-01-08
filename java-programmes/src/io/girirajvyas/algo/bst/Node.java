@@ -1,4 +1,4 @@
-package io.girirajvyas.algorithms.bst;
+package io.girirajvyas.algo.bst;
 
 public class Node {
 	private Node left, right;

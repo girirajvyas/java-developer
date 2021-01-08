@@ -1,14 +1,5 @@
-SDLC
-
- - Waterfall
- - Agile 
-   - Estimates
-   - Scrum
-   - Kanban
- - Lean
-
 Java:
- Basics:
+ - Basics:
     - OOPS Principle, 
     - JDK, JRE, JVM 
     - Class loader, 
@@ -35,6 +26,9 @@ Java:
     - Default java implementation?     
     - How to Clone Object in Java?  
  - String
+   - String s = "abc", where does this is store in memory
+   - String Constant Pool
+   - Why Immutable
  - Collections
     - New collection added in latest version
     - Difference between different collections
@@ -93,6 +87,7 @@ Java:
     - ConcurrentHashMap working -> segments -> how locking is implemented (Re-entant lock)
     - Stampedlock
     - Bounded context
+    - polling vs listener, polling vs observer
  - Exception:
     - Exception hierarchy(Inheritance) 
     - Write custom exception
@@ -132,6 +127,7 @@ Java 8
  - Stream api and any use case?  
  - collectors in java 8?  
  - distinct, sort and frequency example? 
+
 Process
  - Code review process
  - Coding standards
@@ -149,9 +145,14 @@ Design:
  - Code snippet to identify the pattern (Factory pattern)
  - Thread safe singleton
  - Immutable class
+ - system design for stock exchange sysytem
+ - He asked me to design Uber Cab service. He gave me an instant that there are 5 lakh drivers and they all are sending a request to the server & database at a particular time. He asked how can you manage these requests efficiently. I gave answers by using the concepts of Load Balancer, Sharding, Master Slave etc. and he was pretty much happy to listen the concepts.(https://www.geeksforgeeks.org/write-interview-experience/)
+ - Working of log analyzer
+
  
 Spring:
  - Core:
+  - New Scope is spring
  - Boot:
     - DispatcherServlet -> 
     - @SpringBootApplication details
@@ -239,6 +240,7 @@ Micro-services:
  - https://blog.risingstack.com/designing-microservices-architecture-for-failure/
  - Scale cube
  - CAP Theorem
+ - disadvantages of Microservices
 
 ORM
  - join vs join fetch in sping data jpa
@@ -292,27 +294,54 @@ Database:
  - Vertical scaling and horizontal scaling
  - Relational DB vs NoSql DB
 
-
 Java Messaging Systems:
  - topics vs ques
 
-Unit test
+Unit testing
 
-Algorithms
+CI/CD
+
+Algorithms and datastructures
 Find duplicate in unsorted array:
  - Sort and find dupplicate
  - Bitset algorithm (Time and space complexity inversion)
  - HashMap -> (put value and count) or HashSet (returns true if value exists)
  - Negate all elements and sum approach
 
+Linkedlist:
+- Check Circular LinkedList or check if for loop in linkedlist - Sliding window solution
+- Intersection point in 2 linkedlist 
+
 Find missing and duplicate if you have list from 100 to 10,000
  - Bitset algorithm
  - Hashmap
 
-
 Problem:Integer Array having duplicates -> non duplicated record and original sequence should be maintained
 Solution: LinkdedHashMap
 
+Problem: 
+Stream:
+List<Fruits> = ["Banana", "Banana", "Apple", "Mango", "Apple", "Mango"]
+Find repeated -> 
+Put in key, value -> HashMap
+
+Problem:
+Polymorphism
+Parent p = new Parent()
+Parent p = new child()
+child c  = new Parent()
+child c = new child()
+*static method cases
+
+
+SDLC
+ - Waterfall
+ - Agile 
+   - Estimates
+   - Scrum
+   - Kanban
+ - Lean
+ 
 Miscellaneous (Glovo):
  - Horizontal scaling vs Vertical scaling
  - JVM -> Type of memory/ garbage collection
@@ -327,6 +356,7 @@ Miscellaneous (Glovo):
 - SOLID Principles
 - api design
 - code revw
+- StackOverflowError
 
 Angular  
  - Why Angular?  
@@ -346,11 +376,16 @@ Angular
  - Document types  
  - Mocking Json data  
  - Chaining  
- - Strict mode dependency injection  
+ - Strict mode dependency injection
+ - Directives vs components (Example)
+ - Inter component Communication: (@Input/@Output) (via Service annotated with @Injectable) [# for modal] 
 
 Other  
  - Intro to Vue.js?  
  - $ and JQuery
+ - connection pooling
+ - transaction management
+ - ionic vs phonegap
 
 Java Script  
  - Call and apply bind in JS?  
@@ -372,4 +407,6 @@ Java Script
  - Abstract and interface in ES6  
  - this?  
  - $scope and scope
+
+
 

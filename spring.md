@@ -54,6 +54,100 @@ How to configure spring boot?
 How WSDL are generated in SOAP for Spring Boot app?  
 How to configure transaction via Spring?  
 What is Proxy and why?  
+http://progressivecoder.com/spring-boot-microservices-fastest-production-ready-microservices/
+
+# Annotations
+
+## Spring-core
+
+# Spring Core Framework Annotations:-
+ - @Required: This is applied on bean setter method. This enforces that affected bean must be populated at configuration time.
+ - @Autowired: This can be applied on Feild, Setter Method or constructor. It Injects object dependency implicitly.
+ - @Qualifier: This annotation is used with @Annotation. When you want more control on dependency injection.
+ - @Configuration: This is used on class which defined the beans. It is analog to XML Configuration file.
+ - @ComponentScan: This annotation allows the spring to know the packages to scan. It by default scans base Package in which @ComponentScan class is defined.
+    One can use *basePackages* attribute to define different packages other than base package.
+ - @Bean:-
+    @Bean vs @Component:-
+    Both the annotations aims to register target type in Spring Container. 
+    Diff is @Bean is applicable to methods while @Component is applicable to types(like Classes)
+        
+7.     @Lazy:-
+    This is used on Component classes. BY Default all autowired dependencies are created  and configured startup, but if you to initialize bean lazyly, you can use this.
+
+8. @Value:-
+    //This is used with field, constructor or method parameter. It signifies the default value experssion for the feild/constructor/parameter.
+    This is used to read the application appplication property.
+    like - @Value("${spring.application.name}")
+            OR
+    give default values as :
+    @Value("${spring.application.name:defaultName}")
+
+# Spring Framework Stereotype Annotations
+1. @Component:-
+    It register the target type in spring Container. Used for Classes.
+
+2. @Controller:
+    This annotations is used to indicate Spring Container that this the class is Spring Controller Class.
+    It allow Auto-detection of component classes in the classpath and auto regitering bean defination for them.
+    This class is capable for handling multiple request mapping.
+
+3. @Service:
+    This marks a class that performs a service. It is used in Service layer
+    
+4. @Repository:
+    This annotations used in the class which directly access the database. It is used as marker that fullfill the role of Repository.
+    This annotations ha automatic translatioin feature. Eg: when an exception occured in the @Repository Class, there is a handler for that exception. no need for Try catch block.
+
+# Spring Boot Annotations:-
+
+1. @EnableAutoConfiguration:-
+    It Automatically configures your spring application based on the dependencies provides in the class path
+
+2.    @SpringBootApplication
+    It is entry point of Spring Boot Application. It actually scans the whole package and sub packages.
+    It is combination of below 3 annotations:-
+    @ComponentScan
+    @EnableAutoConfiguration
+    @Configuration
+
+
+3. [@ResponseBody:](https://www.baeldung.com/spring-request-response-body)
+    The @ResponseBody annotation tells a controller that the object returned is automatically serialized into JSON and passed back into the HttpResponse object.
+
+4. @RestController - 
+    Class LEvel Annotation. Makes a class Rest Controller. 
+    @RestController = @Controller + @ResponseBody
+    
+    
+    
+# Spring MVC and Rest Annotations:-
+1. @RequestMapping:
+    
+    
+- **Differenc between @PathVariable and @RequestParam**
+    
+    **@RequestParam** - It is used to extract query parameters.
+        example -  http://localhost:8080/eportal/trades?tradeId=2001
+        
+        @RequestMapping("/trades")
+        public String showTradeDetails(@RequestParam String tradeId,
+                               Model model){
+                               ...
+        }
+    
+    **@PathVariable **- It is used to extract values from URI
+    example - http://localhost:8080/book/9783827319333
+    
+    RequestMapping(value="/book/{ISBN}", method= RequestMethod.GET)
+    public String showBookDetails(@PathVariable("ISBN") String id,
+                              Model model){
+                              ..
+                              }
+
+### Ref:- https://springframework.guru/spring-framework-annotations/
+          https://howtodoinjava.com/spring-core/spring-annotations/
+          
 
 # Answers to Questions Above
 When are the beans initialized in Spring?  
@@ -93,15 +187,15 @@ Difference
   3. Another difference between BeanFactory vs ApplicationContext is ability to publish event to beans that are registered as listener. 
   4. One of the popular implementation of BeanFactory interface is XMLBeanFactorywhile one of the popular implementation of ApplicationContext interface isClassPathXmlApplicationContext.  
   5. If you are using auto wiring and using BeanFactory than you need to registerAutoWiredBeanPostProcessor using API which you can configure in XML if you are using  ApplicationContext. In summary BeanFactory is OK for testing and non production use but ApplicationContext is more feature rich container implementation and should be favored over BeanFactory  
- 
+
 Bean Factory  
-  •	Bean instantiation/wiring  
-Application Context  
-  •	Bean instantiation/wiring  
-  •	Automatic BeanPostProcessor registration  
-  •	Automatic BeanFactoryPostProcessor registration  
-  •	Convenient MessageSource access (for i18n)  
-  •	ApplicationEvent publication  
+ - Bean instantiation/wiring  
+ - Application Context  
+ - Bean instantiation/wiring  
+ - Automatic BeanPostProcessor registration  
+ - Automatic BeanFactoryPostProcessor registration  
+ - Convenient MessageSource access (for i18n)  
+ - ApplicationEvent publication  
 
 Q. Difference between <context:annotation-config> vs <context:component-scan>?** 
 Ref: http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan 
@@ -213,12 +307,14 @@ Singleton bean is wired with yet another singleton bean, there is absolutely no 
 Spring core comes out-of-the-box with two scopes: singletons and prototypes. Singletons implement the Singleton pattern, meaning there's only a single instance at runtime (in a JVM). Spring instantiates them during context creation, caches them in the context, and serves them from the cache when needed (or something like that). Prototypes are instantiated each time you access the context to get the bean.
 
 **References:**
-http://stackoverflow.com/questions/25708452/spring-web-context-without-spring-mvc  
-http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan  
-http://howtodoinjava.com/spring/spring-mvc/spring-mvc-difference-between-contextannotation-config-vs-contextcomponent-scan/  
-http://www.javacreed.com/why-should-we-use-maven/  
-http://stackoverflow.com/questions/7031885/how-to-choose-the-right-bean-scope  
+ - http://stackoverflow.com/questions/25708452/spring-web-context-without-spring-mvc  
+ - http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan  
+ - http://howtodoinjava.com/spring/spring-mvc/spring-mvc-difference-between-contextannotation-config-vs-contextcomponent-scan/  
+ - http://www.javacreed.com/why-should-we-use-maven/  
+ - http://stackoverflow.com/questions/7031885/how-to-choose-the-right-bean-scope  
 
+ - [More On..](https://springframework.guru/spring-framework-annotations/)
+ - https://www.springboottutorial.com/spring-boot-interview-questions
 
  *Spring Boot Actuator*
  * https://spring.io/guides/gs/actuator-service/
@@ -229,6 +325,13 @@ http://stackoverflow.com/questions/7031885/how-to-choose-the-right-bean-scope
 
  *Spring cloud security*
  * http://cloud.spring.io/spring-cloud-security/spring-cloud-security.html
+ 
+ Validation
+ - https://www.baeldung.com/spring-data-rest-validators
+ - https://g00glen00b.be/validating-the-input-of-your-rest-api-with-spring/
+
+
+ - https://www.linkedin.com/learning/spring-framework-in-depth/the-initialization-phase-bean-instantiation?u=2113185 
 
  Class and respective Jars  
 
@@ -238,3 +341,14 @@ http://stackoverflow.com/questions/7031885/how-to-choose-the-right-bean-scope
 | org.springframework.ui.ModelMap | spring context |
 | org.springframework.web.bind.annotation.RequestMapping | spring web |
 | org.springframework.web.bind.annotation.PathVariable | spring web |
+
+### BeanFactory vs ApplicaitonContext 
+1. BeanFactory instantiate bean when you call getBean() method while ApplicationContext instantiate Singleton bean when container is started,  It doesn't wait for getBean() to be called. 
+
+2. BeanFactory doesn't provide support for internationalization but ApplicationContext provides support for it.
+
+3. Another difference between BeanFactory vs ApplicationContext is ability to publish event to beans that are registered as listener.
+
+4. One of the popular implementation of BeanFactory interface is XMLBeanFactory while one of the popular implementation of ApplicationContext interface is ClassPathXmlApplicationContext.
+
+5. If you are using auto wiring and using BeanFactory than you need to register AutoWiredBeanPostProcessor using API which you can configure in XML if you are using  ApplicationContext. In summary BeanFactory is OK for testing and non production use but ApplicationContext is more feature rich container implementation and should be favored over BeanFactory

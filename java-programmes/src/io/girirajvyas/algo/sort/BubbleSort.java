@@ -1,4 +1,4 @@
-package io.girirajvyas.algorithms.sort;
+package io.girirajvyas.algo.sort;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package io.girirajvyas.algorithms.search;
+package io.girirajvyas.algo.search;
 
 /**
  * <pre>

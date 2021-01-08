@@ -27,7 +27,7 @@ import io.girirajvyas.questions.pojo.Parent;
 public class QuestionBank {
 
 	public static void main(String[] args) {
-		question20();
+		question21();
 	}
 
 	public static void question1() {
@@ -269,8 +269,10 @@ public class QuestionBank {
 		
 		HashSet<Employee> set = new HashSet<Employee>();
 		set.add(employee);
+		
 		employee.setEmpId(new EmployeeId(48322, "Giriraj"));
 		set.add(employee);
+		
 		System.out.println(set.size());
 	}
 	
@@ -324,5 +326,21 @@ public class QuestionBank {
 	  List<Integer> list = Arrays.asList(1,2,3,4,5);
 	  Optional<Integer> element = list.stream().filter(e -> e == 5).findFirst();
 	  System.out.println(element); 
+	}
+	
+	public static void question21() {
+	    Map<EmployeeForMap, String> map = new HashMap<>();
+	    EmployeeForMap employeeToRemove = null;
+
+	    for (int i = 0; i < 20; i++) {
+	    	EmployeeForMap emp = new EmployeeForMap(i, i);
+	        map.put(emp, "Employee" + i);
+	    
+	        if (i == 3)
+	            employeeToRemove = emp;
+	    }
+
+	    employeeToRemove.age *= 3;
+	    System.out.println(map.get(employeeToRemove));
 	}
 }
