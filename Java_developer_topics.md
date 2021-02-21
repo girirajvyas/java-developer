@@ -1,9 +1,19 @@
 Java:
+ - Setup
+  - JDK, JRE, JVM 
+  - java_versions
+  - jre folder removed in java 14?
+  - user variable vs system variable
+ - Internals
+   - JVM
+     - JVM architecture
+     - lass loader
+   - JMM
+     - Memory management -> Garbage collection
+     - Types of garbage collector
+     - Garbage Collection
  - Basics:
     - OOPS Principle, 
-    - JDK, JRE, JVM 
-    - Class loader, 
-    - Memory management -> Garbage collection, 
     - immutability (key in hashMap example) 
     - Final vs Effective Final
     - Variable hiding
@@ -11,11 +21,6 @@ Java:
     - Types of reference:
         - phantom reference -> Why finalize() method is deprecated on java 9
         - escape reference
-    - user variable vs system variable
-    - jre folder removed in java 14?
-    - Types of garbage collector
-    - Garbage Collection
-    - JVM architecture
     - finally vs finalize
     - static block vs initialization block vs constructor
  - Comparable vs comparator
@@ -141,7 +146,7 @@ Design:
              - break the inheritance/patterns
              - tell dont ask
  - Microservices architecture patterns
- - Cohesion vs coupling vs aggregation
+ - Cohesion vs Coupling | Association vs aggregation vs composition
  - Code snippet to identify the pattern (Factory pattern)
  - Thread safe singleton
  - Immutable class
