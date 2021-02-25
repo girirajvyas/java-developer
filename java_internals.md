@@ -230,3 +230,5 @@ Memory error:
 # Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
 [thread 28056 also had an error]
 ```
+
+https://blogs.oracle.com/javamagazine/understanding-the-jdks-new-superfast-garbage-collectors

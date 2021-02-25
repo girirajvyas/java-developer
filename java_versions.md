@@ -1,26 +1,123 @@
 # java versions
 
-   - https://en.wikipedia.org/wiki/Java_version_history
-   - https://medium.com/@hrishiraskar/java-versions-wise-feature-history-2fba2c59305e
-   - https://www.marcobehler.com/guides/a-guide-to-java-versions-and-features
-   - https://blog.ippon.tech/comparing-java-lts-releases/
-   - https://howtodoinjava.com/java-version-wise-features-history/
-   https://www.javatpoint.com/java-versions
-   https://howtodoinjava.com/java14/helpful-nullpointerexception/
-   - Java official roadmap: https://www.oracle.com/java/technologies/java-se-support-roadmap.html
-   - openjdk: https://blog.joda.org/2018/09/time-to-look-beyond-oracles-jdk.html?showComment=1536303755275#c5934330550793525320
-https://www.petefreitag.com/item/911.cfm
+This place is to consolidate all the major version changes that occur in Java with a timeline
+# Summary
 
- - Java 8
- - Java 7 - invokeDynamic
- - Java 6
- - Java 5
- - Java 4
- - Java 3
- - Java 2
- - Java 1
+- java 7
+  - invokeDynamic
+  - 
+- java 8
+  - Lambda 
+  - Along with functional interfaces that has SAM
+    - Function -> apply method
+      - UnaryOperator
+    - Predicate -> test
+    - Consumer -> accept
+    - Supplier -> get
+  - Streams introduced for processsing the data
+    - Intermediate operations:
+      - map
+      - flatmap
+      - peek
+      - limit
+      - skip
+      - filter
+      - distinct
+      - sorted
+    - Terminal Operations
+      - collect
+      - reduce
+      - findFirst
+      - FindAny
+      - anymatch
+      - nonMatch
+      - allMatch
+      - min
+      - max
+      - count
+      - foreach
+      - foreachordered
+      - toArray
+- Java 9 - Sept 2017
+  - Project Jigsaw (No JRE folder)
+  - .of method to get Immutable collections
+  - Streams api has:
+    Intermediate:     
+      - dropWhile
+      - takeWhile
+      - iterate
+    - ofNullable - creation method
+  - JShell
+  - Money and Currency api
+  - G1GC default GC
+  - Deprecate CMS: https://openjdk.java.net/jeps/291
+  - AOT COmpilation:
+    - Ahead-of-Time Compilation - https://openjdk.java.net/jeps/295
+       - Above depens on:Java-Level JVM Compiler Interface - https://openjdk.java.net/jeps/243
+- Java 10 - March 2018
+  - Timeline changed from here: Time based release versioning https://openjdk.java.net/jeps/322
+  - var keyword
+  - Java based JIT compiler Experimental Graal - https://openjdk.java.net/jeps/317
+  - Parallel Full GC for G1: https://openjdk.java.net/jeps/307
+- Java 11 - Sept 2018
+  - Deprecate Nashorn JavaScript engine that was introduced in java 8
+  - ZGC garbage collector introduced
+- java 12: - March 2019
+  - Shenandoah GC
+  - Switch expressions Preview-1
+- java 13: - Sept 2019
+  - Switch expressions Preview-2
+  - Text blocks-preview-1
+- java 14: March 2020
+  - Helpful NullPointerExceptions: https://openjdk.java.net/jeps/358
+  - Switch expressions-standard
+  - instanceOf improvements
+  - Text blocks-preview-2
+  - Remove CMS GC
+- Java 15: Sept 2020
+  - Sealed classes - preview
+  - Text blocks - 
+  - Records - second preview
+- Java 16 March 2021
+
+## Java 14
+ - Sealed classes
+ - Record - https://openjdk.java.net/jeps/359 - preview (Final https://openjdk.java.net/jeps/395)
+ - Remove CMS (deprecated in java 9)
+ - Switch Statements
+ - improved nullpointer
+
+## Java 12
+ - Shenandoah GC
 
 
+## Java 11
+
+ - Deprecate Nashorn JavaScript engine that was introduced in java 8
+ - ZGC garbage collector introduced
+
+## Java SE 10
+
+**New features in Java SE 10**  
+ - Time based release versioning
+ - var keyword
+
+## Java SE 9
+
+At JavaOne 2011, proposed to release java 9 in 2016  
+     Early 2016, rescheduled for March 2017 and again postponed to July 2017
+        Finally, released on **21st September 2017** 
+
+Also, In September 2017, Mark Reinhold, chief Architect of the Java Platform, proposed to change the release train to **"one feature release every six months"** rather than the current two-year schedule at that time, and later the proposal took effect.
+
+**New features in Java SE 9**  
+ - JEP 222: JShell
+ - Project jigsaw (https://stackoverflow.com/questions/46388117/where-is-jre-folder-in-java-9)
+ - Money and currency Api
+ - .of in list,set and map
+ - Streams api enhancement
+
+https://beginnersbook.com/2018/04/java-9-features-with-examples/
 
 ## Java SE 8:
 
@@ -55,6 +152,9 @@ https://www.petefreitag.com/item/911.cfm
  - Diamond Syntax  
  - Automatic null Handling  
 
+
+Lambda (Java's implementation of lambda functions), Jigsaw (Java's implementation of modules), and part of Coin were dropped from Java 7, and released as part of Java 8 (except for Jigsaw, which was released in Java 9).
+
 ## Java Version SE 6  
 
 **Relase date:** December 11, 2006 (12/2006)  
@@ -68,7 +168,8 @@ https://www.petefreitag.com/item/911.cfm
  - Native PKI, Java GSS, Kerberos and LDAP support.  
  - Integrated Web Services.  
  - Lot more enhancements.  
-
+ - G1 was first introduced as an experimental option in Java SE 6 Update 14 (Experimental)
+ 
 ## J2SE Version 5.0
 
 **Relase date:** September 30, 2004 (09/2006)  
@@ -147,3 +248,12 @@ https://www.petefreitag.com/item/911.cfm
 # References
  - https://www.javatpoint.com/java-versions
  - https://en.wikipedia.org/wiki/Java_version_history
+ - https://medium.com/@hrishiraskar/java-versions-wise-feature-history-2fba2c59305e
+ - https://www.marcobehler.com/guides/a-guide-to-java-versions-and-features
+ - https://blog.ippon.tech/comparing-java-lts-releases/
+ - https://howtodoinjava.com/java-version-wise-features-history/
+ - https://www.javatpoint.com/java-versions
+ - https://howtodoinjava.com/java14/helpful-nullpointerexception/
+ - Java official roadmap: https://www.oracle.com/java/technologies/java-se-support-roadmap.html
+ - openjdk: https://blog.joda.org/2018/09/time-to-look-beyond-oracles-jdk.html?showComment=1536303755275#c5934330550793525320
+ - https://www.petefreitag.com/item/911.cfm

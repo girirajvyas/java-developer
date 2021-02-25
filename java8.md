@@ -192,12 +192,11 @@ Lambda Expressions:
  
 Intermediate operations on Stream:
  
-è Filter : is used for filtering the data , it always returns the Boolean value . If it returns true , the item is added to list else its filtered out.
--       Takes Predicate (functional interface)
- 
-è Map : is used for transforming the object values .
--       Takes Function(functional interface) as input.
-è FlatMap:
+ - Filter : is used for filtering the data , it always returns the Boolean value . If it returns true , the item is added to list else its filtered out.
+  - Takes Predicate (functional interface)
+ - Map : is used for transforming the object values .
+   - Takes Function(functional interface) as input.
+ - FlatMap:
  
 è Distinct
  
