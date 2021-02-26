@@ -232,3 +232,10 @@ Memory error:
 ```
 
 https://blogs.oracle.com/javamagazine/understanding-the-jdks-new-superfast-garbage-collectors
+
+## Print assembly for JIT
+Whether you are implementing a micro-benchmark, doing a hardcore low-level performance analysis, or you are just curious, you may want to look at what JIT does to your code.
+While -XX:+PrintCompilation and -XX:+PrintInlining give a high-level idea of what's going on, the -XX:+PrintAssembly provide actual generated assembly code.
+
+Oracle has a good [Wiki article](https://wikis.oracle.com/display/HotSpotInternals/PrintAssembly) explaining this and a few other relevant options. In order for them to work, you'll need a disassembly plugin - hsdis.
+Linux and win32 binaries are linked from that wiki page.
