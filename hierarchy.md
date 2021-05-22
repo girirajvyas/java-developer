@@ -64,15 +64,18 @@ public abstract class AbstractQueue<E> extends AbstractCollection<E> implements 
                   _________________________________|________________________________  
                  |                                 |                                 |  
                  |                                 |                                 |
-          ArrayList (Class)                Vector(Class)                     LinkedList (Class)
-(use when frequent access to data is required)                  (use when multiple add remove is required)
+          ArrayList (Class)                  Vector(Class)                   LinkedList (Class)
+(use when frequent access to data is required)     |            (use when multiple add remove is required)
+                                                   |
+                                             Stack (Class)
 
 Note: It is good practise to initialize ArrayList with higher initial capacity as default is less (10)
 ```
 ```java
 public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable
-public class Vector<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable
 public class LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable,Serializable
+public class Vector<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+public class Stack<E> extends Vector<E>
 
 // Common Marker Interfaces:
 java.lang.Cloneable: for cloning 

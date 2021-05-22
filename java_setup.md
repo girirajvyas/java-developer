@@ -18,6 +18,7 @@
 
 Note: Make sure you download the correct bit version i.e 64 bit or 32 bit version depending on the operating system that you are using.
 
+What Next: https://docs.oracle.com/en/java/javase/15/index.html
 
 ### Intellij Idea
 

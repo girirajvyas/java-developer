@@ -9,12 +9,12 @@
 Good read: https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 
 Restful
- - Richardson maturity model
+ - [Richardson maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html)
    - level 0: Swamp of POX (plain old xml)
    - level 1: Correct resource URI
    - level 2: Correct Response codes and HTTP methods
    - level 3: HATEOAS Hypermedia as the engine of Application state
- - https://martinfowler.com/articles/richardsonMaturityModel.html
+ - 
 ## REST Alternatives:
  - https://grpc.io/
  - http://graphql.org/

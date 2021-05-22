@@ -164,4 +164,12 @@ Good read: https://dzone.com/articles/the-best-code-review?fromrel=true
    - use static code analysis tools and code style checkers as one of the tool to enforce coding standards
    - knowledge base have an up-to-date dedicated section for coding standards, best practices, dos, don’t's, etc
    
+## Text:  
+Source Control  
+Source Control is a security plan to secure your working code. Implement Source Control by keeping the code in a single location, with secure and logged access. This could be a physical location where files are stored and accessed in a single room in the building. It could also be a virtual space where users can log in with an encrypted connection to a cloud-based development environment.
 
+Source Control applications include a change management system to track work done by individuals or teams. As with any storage, use a backup system to record development progress in case of a disaster.
+
+
+Continuous Integration  
+Continuous Integration evolved out of a case of what not to do. CI works to make sure each component is compatible through the whole development cycle. Before CI, different teams would build their own projects independently. This created significant challenges at the end when developers stitched the application together. Continuous Integration ensures all teams use similar programming languages and libraries, and helps prevent conflicts and duplicated work.
