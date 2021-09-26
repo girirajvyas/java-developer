@@ -4,11 +4,11 @@ I have tried to collect and consolidate the topics that you can read in java and
 
 You can follow files in the repo in following order
 
- - java_versions.md (you can do setup and then read this as well, these are interchangable)
- - java_setup.md
+ - [java_versions.md (you can do setup and then read this as well, these are interchangable)](https://github.com/girirajvyas/java-developer/blob/master/java_versions.md)
+ - [java_setup.md](https://github.com/girirajvyas/java-developer/blob/master/java_setup.md)
  - [ds-algo-java](https://github.com/girirajvyas/ds-algo-java) (Read only if you are starting up and need to setup basics)
- - hierarchy.md (this will give you hierarchy of major classes used in the Java)
- - java_collections.md (if you read the hierarchy beforehand then you know what you are going to expect here)
+ - [hierarchy.md (this will give you hierarchy of major classes used in the Java)](https://github.com/girirajvyas/java-developer/blob/master/hierarchy.md)
+ - [java_collections.md (if you read the hierarchy beforehand then you know what you are going to expect here)](https://github.com/girirajvyas/java-developer/blob/master/java_collections.md)
  - java.md (different topics/questions and their explaination)
  - java8.md (different topics/questions and their explaination)
  
@@ -427,3 +427,6 @@ Java Script
  - Abstract and interface in ES6  
  - this?  
  - $scope and scope
+ 
+## References:
+ - Extensive list of topics: https://www.geeksforgeeks.org/java/
