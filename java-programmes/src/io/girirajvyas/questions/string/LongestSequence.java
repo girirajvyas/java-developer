@@ -1,4 +1,4 @@
-package io.girirajvyas.questions;
+package io.girirajvyas.questions.string;
 
 /**
  * Q1: Find first longest sequence of alphabets/numbers found in the String
@@ -7,20 +7,20 @@ package io.girirajvyas.questions;
  *
  * #HarMan
  */
-public class StringQuestion1 {
+public class LongestSequence {
 
 	public static void main(String[] args) {
-		String s = "ZZZZAISSDRRIIIIIIIHHHQQQDDDDDDDZZZZZDD";
-		System.out.println(longest(s));
+		String s = "ZZZZAISSDRRIIIHHHQQQDDDDDDDZZZZZDD";
+		System.out.println(findFirstLongestSequence(s));
 	}
 
 	/**
-	 * Method determining the longest sequesnce
+	 * Method determining the longest sequence
 	 * 
 	 * @param s
 	 * @return
 	 */
-	public static final String longest(String s) {
+	public static final String findFirstLongestSequence(String s) {
 		// variables to keep track of current and longest sequence element
 		String longestSequenceElement = "";
 		String currentSequenceElement = "";
@@ -55,7 +55,7 @@ public class StringQuestion1 {
 			}
 		}
 
-		return longestSequenceElement + longestSequenceElementCount;
+		return longestSequenceElement +":"+ longestSequenceElementCount;
 	}
 
 }

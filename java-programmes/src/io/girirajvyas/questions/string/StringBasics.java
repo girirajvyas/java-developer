@@ -1,4 +1,4 @@
-package io.girirajvyas.questions;
+package io.girirajvyas.questions.string;
 
 /**
  * Q2: Find the output of given condition. String s1 = new String(); <br/>
@@ -23,7 +23,7 @@ package io.girirajvyas.questions;
  * @author giri
  *
  */
-public class StringQuestion2 {
+public class StringBasics {
 
 	public static void main(String[] args) {
 		String s1 = new String();
